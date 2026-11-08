@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quinta Los Picachos | Quinta para eventos en La Huasteca, Santa Catarina</title>
+    <meta name="description" content="Quinta Los Picachos en La Huasteca, Santa Catarina, Nuevo León. Alberca, jardines y áreas techadas para pasar el día o celebrar tu evento. Entrada $150 MXN.">
+    <meta name="theme-color" content="#2f4a4f">
+
+    <!-- Al compartir el enlace por WhatsApp o redes -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Quinta Los Picachos | La Huasteca">
+    <meta property="og:description" content="Alberca, jardines y áreas techadas al pie de las montañas de La Huasteca. Visítanos o celebra tu evento.">
+    <meta property="og:image" content="https://gamezun.github.io/Quinta-los-pciachos/assets/hero.webp">
+    <meta property="og:locale" content="es_MX">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:opsz,wght@9..144,500;9..144,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles-claude.css">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Quinta Los Picachos",
+        "description": "Quinta con alberca, jardines y áreas techadas para visitas y eventos en La Huasteca.",
+        "telephone": "+52 81 8257 2088",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Santa Catarina",
+            "addressRegion": "Nuevo León",
+            "addressCountry": "MX"
+        }
+    }
+    </script>
+</head>
+
+<body>
+
+    <!-- ============ ENCABEZADO ============ -->
+    <header class="header" id="inicio">
+        <div class="wrap header__inner">
+            <a href="#inicio" class="logo" aria-label="Quinta Los Picachos, inicio">
+                <span class="logo__mark">LP</span>
+                <span class="logo__text">Los Picachos<small>Quinta · La Huasteca</small></span>
+            </a>
+
+            <nav class="nav" id="nav" aria-label="Principal">
+                <a href="#lugar">El lugar</a>
+                <a href="#galeria">Galería</a>
+                <a href="#visita">Visítanos</a>
+                <a href="#eventos">Eventos</a>
+                <a href="#ubicacion">Ubicación</a>
+                <a href="#eventos" class="btn btn--small nav__cta">Cotiza tu evento</a>
+            </nav>
+
+            <button class="menu-btn" id="menuBtn" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- ============ PORTADA ============ -->
+        <section class="hero">
+            <img class="hero__img" src="assets/hero.webp"
+                alt="Vista panorámica de la alberca y las montañas de La Huasteca">
+            <div class="hero__shade"></div>
+
+            <div class="wrap hero__content">
+                <p class="eyebrow eyebrow--light">Santa Catarina · Nuevo León</p>
+                <h1>Alberca, sombra y montañas, <span>a un paso de la ciudad.</span></h1>
+                <p class="hero__lead">Pasa el día en familia o celebra tu evento en Quinta Los Picachos, en el entorno de La Huasteca.</p>
+
+                <div class="hero__actions">
+                    <a href="#eventos" class="btn">Organiza tu evento</a>
+                    <a href="#galeria" class="btn btn--ghost">Ver el lugar</a>
+                </div>
+
+                <ul class="hero__facts">
+                    <li><strong>$150</strong> entrada general</li>
+                    <li><strong>Gratis</strong> menores de 2 años</li>
+                    <li><strong>Eventos</strong> cumpleaños, convivios y más</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ============ EL LUGAR ============ -->
+        <section class="section" id="lugar">
+            <div class="wrap split">
+                <div>
+                    <p class="eyebrow">01 · El lugar</p>
+                    <h2>La naturaleza marca el ritmo.</h2>
+                    <p>Quinta Los Picachos está en el entorno de La Huasteca, en Santa Catarina, Nuevo León. Es un lugar para refrescarte en la alberca, descansar bajo la sombra de los árboles y disfrutar la vista de las montañas.</p>
+                    <p>Ven a pasar un día diferente con tu familia y amigos, o prepara una celebración especial al aire libre.</p>
+                    <a href="#ubicacion" class="link-arrow">Ver cómo llegar</a>
+                </div>
+
+                <ul class="features">
+                    <li>
+                        <h3>Alberca</h3>
+                        <p>Para refrescarse con vista a las montañas.</p>
+                    </li>
+                    <li>
+                        <h3>Jardines arbolados</h3>
+                        <p>Sombra y espacio para caminar y convivir.</p>
+                    </li>
+                    <li>
+                        <h3>Áreas techadas</h3>
+                        <p>Para reunirse sin preocuparse por el clima.</p>
+                    </li>
+                    <li>
+                        <h3>Mesas y descanso</h3>
+                        <p>Rincones al aire libre para comer y platicar.</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ============ GALERÍA ============ -->
+        <section class="section section--sand" id="galeria">
+            <div class="wrap">
+                <div class="section__head">
+                    <p class="eyebrow">02 · Galería</p>
+                    <h2>Así se vive Quinta Los Picachos.</h2>
+                    <p>Fotografías reales de las instalaciones. Toca cualquiera para verla en grande.</p>
+                </div>
+
+                <div class="gallery" id="gallery">
+                    <button class="gallery__item" data-index="0">
+                        <img src="assets/galeria-10.webp" alt="Alberca con vista a las montañas de La Huasteca" loading="lazy">
+                        <span>Alberca</span>
+                    </button>
+                    <button class="gallery__item" data-index="1">
+                        <img src="assets/galeria-06.webp" alt="Área techada para convivencias" loading="lazy">
+                        <span>Área techada</span>
+                    </button>
+                    <button class="gallery__item" data-index="2">
+                        <img src="assets/galeria-07.webp" alt="Instalaciones y áreas exteriores" loading="lazy">
+                        <span>Instalaciones</span>
+                    </button>
+                    <button class="gallery__item" data-index="3">
+                        <img src="assets/galeria-03.webp" alt="Jardín arbolado de la quinta" loading="lazy">
+                        <span>Jardines</span>
+                    </button>
+                    <button class="gallery__item" data-index="4">
+                        <img src="assets/galeria-08.webp" alt="Área exterior con sombra para descansar" loading="lazy">
+                        <span>Áreas de descanso</span>
+                    </button>
+                    <button class="gallery__item" data-index="5">
+                        <img src="assets/galeria-11.webp" alt="Vista panorámica de la alberca y las montañas" loading="lazy">
+                        <span>Vista panorámica</span>
+                    </button>
+                    <button class="gallery__item" data-index="6">
+                        <img src="assets/galeria-01.webp" alt="Jardín de Quinta Los Picachos" loading="lazy">
+                        <span>Jardín</span>
+                    </button>
+                    <button class="gallery__item" data-index="7">
+                        <img src="assets/galeria-02.webp" alt="Vista de las áreas verdes" loading="lazy">
+                        <span>Áreas verdes</span>
+                    </button>
+                    <button class="gallery__item" data-index="8">
+                        <img src="assets/galeria-04.webp" alt="Jardín y árboles" loading="lazy">
+                        <span>Entre los árboles</span>
+                    </button>
+                    <button class="gallery__item" data-index="9">
+                        <img src="assets/galeria-05.webp" alt="Mesas en área arbolada" loading="lazy">
+                        <span>Mesas bajo la sombra</span>
+                    </button>
+                    <button class="gallery__item" data-index="10">
+                        <img src="assets/galeria-09.webp" alt="Alberca exterior" loading="lazy">
+                        <span>Alberca exterior</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ VISÍTANOS ============ -->
+        <section class="section section--teal" id="visita">
+            <div class="wrap visit">
+                <div>
+                    <p class="eyebrow eyebrow--light">03 · Visítanos</p>
+                    <h2>Un día para desconectarte.</h2>
+                    <p>Entra, escoge tu sombra y disfruta la alberca. Sin complicaciones.</p>
+                </div>
+
+                <div class="price-card">
+                    <p class="price-card__label">Entrada general</p>
+                    <p class="price-card__price">$150 <small>MXN por persona</small></p>
+                    <p class="price-card__note">Los niños menores de 2 años entran gratis.</p>
+                    <hr>
+                    <p class="price-card__small">¿Quieres saber horarios, días de apertura o el reglamento antes de venir? Pregúntanos directo.</p>
+                    <a class="btn btn--wa" data-wa="Hola, quiero información sobre horarios y condiciones para visitar Quinta Los Picachos." href="#">Preguntar por WhatsApp</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ EVENTOS ============ -->
+        <section class="section" id="eventos">
+            <div class="wrap events">
+                <div>
+                    <p class="eyebrow">04 · Eventos</p>
+                    <h2>Los buenos momentos merecen un buen lugar.</h2>
+                    <p>Cumpleaños, reuniones familiares, convivios y celebraciones especiales. Cuéntanos qué estás planeando y te orientamos con opciones, disponibilidad y condiciones.</p>
+
+                    <ul class="tags">
+                        <li>Cumpleaños</li>
+                        <li>Reuniones familiares</li>
+                        <li>Convivios</li>
+                        <li>Celebraciones especiales</li>
+                    </ul>
+
+                    <p class="muted">Enviar el formulario no reserva la fecha: la reservación se confirma directamente con la administración.</p>
+                </div>
+
+                <form class="form" id="eventoForm" novalidate>
+                    <h3>Solicita información para tu evento</h3>
+
+                    <div class="field">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" id="nombre" name="nombre" autocomplete="name" placeholder="Tu nombre" required>
+                    </div>
+
+                    <div class="row">
+                        <div class="field">
+                            <label for="fecha">Fecha deseada</label>
+                            <input type="date" id="fecha" name="fecha" required>
+                        </div>
+                        <div class="field">
+                            <label for="personas">Número de personas</label>
+                            <input type="number" id="personas" name="personas" min="1" inputmode="numeric" placeholder="Ej. 40" required>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="field">
+                            <label for="tipo">Tipo de evento</label>
+                            <select id="tipo" name="tipo" required>
+                                <option value="">Selecciona una opción</option>
+                                <option>Cumpleaños</option>
+                                <option>Reunión familiar</option>
+                                <option>Convivio</option>
+                                <option>Celebración especial</option>
+                                <option>Otro</option>
+                            </select>
+                        </div>
+                        <div class="field">
+                            <label for="horas">Horas que deseas reservar</label>
+                            <select id="horas" name="horas">
+                                <option value="Por definir">Por definir</option>
+                                <option>2 horas</option>
+                                <option>3 horas</option>
+                                <option>4 horas</option>
+                                <option>5 horas</option>
+                                <option>6 horas</option>
+                                <option>Más de 6 horas</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label for="detalles">Detalles adicionales (opcional)</label>
+                        <textarea id="detalles" name="detalles" rows="3" placeholder="Cuéntanos algo más de tu evento"></textarea>
+                    </div>
+
+                    <p class="form__error" id="formError" role="alert" hidden></p>
+
+                    <button type="submit" class="btn btn--wa btn--block">Enviar solicitud por WhatsApp</button>
+                    <p class="form__note">Se abrirá WhatsApp con tu mensaje listo para enviar. Tus datos no se envían automáticamente desde esta página.</p>
+                </form>
+            </div>
+        </section>
+
+        <!-- ============ UBICACIÓN ============ -->
+        <section class="section section--sand" id="ubicacion">
+            <div class="wrap location">
+                <div>
+                    <p class="eyebrow">05 · Ubicación</p>
+                    <h2>Nos vemos en La Huasteca.</h2>
+                    <p><strong>Quinta Los Picachos</strong><br>La Huasteca, Santa Catarina, Nuevo León, México.</p>
+
+                    <div class="location__actions">
+                        <a class="btn" target="_blank" rel="noopener"
+                            href="https://www.google.com/maps/search/?api=1&query=Quinta%20Los%20Picachos%20La%20Huasteca%20Santa%20Catarina%20Nuevo%20Leon">Abrir en Google Maps</a>
+                        <a class="btn btn--outline" href="tel:+528182572088">Llamar al 81 8257 2088</a>
+                    </div>
+                </div>
+
+                <div class="map">
+                    <iframe
+                        src="https://www.google.com/maps?q=Quinta%20Los%20Picachos%2C%20La%20Huasteca%2C%20Santa%20Catarina%2C%20Nuevo%20Le%C3%B3n&output=embed"
+                        title="Mapa de Quinta Los Picachos" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ PREGUNTAS ============ -->
+        <section class="section" id="preguntas">
+            <div class="wrap wrap--narrow">
+                <div class="section__head">
+                    <p class="eyebrow">06 · Antes de tu visita</p>
+                    <h2>Preguntas frecuentes</h2>
+                </div>
+
+                <details>
+                    <summary>¿Cuánto cuesta la entrada?</summary>
+                    <p>La entrada general es de $150 MXN. Los niños menores de 2 años entran gratis.</p>
+                </details>
+                <details>
+                    <summary>¿Cómo aparto una fecha para mi evento?</summary>
+                    <p>Llena el formulario o escríbenos por WhatsApp. La fecha no queda reservada hasta recibir la confirmación de la administración.</p>
+                </details>
+                <details>
+                    <summary>¿Cuáles son los horarios y el reglamento?</summary>
+                    <p>Los horarios, días de apertura, reglamento, depósitos y cancelaciones se confirman directamente con la administración. Puedes preguntarlos por WhatsApp.</p>
+                </details>
+                <details>
+                    <summary>¿Hay servicios adicionales?</summary>
+                    <p>Los servicios adicionales y la disponibilidad se consultan con el equipo según la fecha y el tipo de evento.</p>
+                </details>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ============ PIE ============ -->
+    <footer class="footer">
+        <div class="wrap footer__inner">
+            <div>
+                <p class="footer__brand">Quinta Los Picachos</p>
+                <p>La Huasteca · Santa Catarina, Nuevo León</p>
+            </div>
+            <div>
+                <p>Entrada general $150 MXN · Menores de 2 años entran gratis.</p>
+                <p>© Quinta Los Picachos. Diseño y desarrollo
+                    <a href="https://gamezun.github.io/Gamez.web/" target="_blank" rel="noopener">GMZ Digital Solutions</a>
+                </p>
+            </div>
+            <a href="#inicio" class="footer__top">Volver al inicio ↑</a>
+        </div>
+    </footer>
+
+    <!-- Botón flotante de WhatsApp -->
+    <a class="wa-float" data-wa="Hola, quiero información sobre Quinta Los Picachos." href="#" aria-label="Escribir por WhatsApp">
+        <svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true" fill="currentColor">
+            <path d="M16.04 3C9.4 3 4.02 8.37 4.02 15c0 2.12.55 4.18 1.6 6L4 28l7.16-1.88A12 12 0 0 0 16.04 27C22.67 27 28.05 21.63 28.05 15S22.67 3 16.04 3Zm0 21.9c-1.8 0-3.55-.48-5.08-1.4l-.36-.22-4.25 1.12 1.13-4.14-.24-.38A9.9 9.9 0 0 1 6.1 15c0-5.46 4.46-9.9 9.94-9.9 5.47 0 9.93 4.44 9.93 9.9 0 5.47-4.46 9.9-9.93 9.9Zm5.45-7.42c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.63.71.23 1.36.2 1.87.12.57-.08 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35Z" />
+        </svg>
+        <span>WhatsApp</span>
+    </a>
+
+    <!-- Visor de fotos -->
+    <div class="lightbox" id="lightbox" hidden>
+        <button class="lightbox__close" id="lbClose" aria-label="Cerrar">×</button>
+        <button class="lightbox__nav lightbox__nav--prev" id="lbPrev" aria-label="Foto anterior">‹</button>
+        <figure>
+            <img id="lbImg" src="" alt="">
+            <figcaption id="lbCaption"></figcaption>
+        </figure>
+        <button class="lightbox__nav lightbox__nav--next" id="lbNext" aria-label="Foto siguiente">›</button>
+    </div>
+
+    <script src="script-claude.js"></script>
+</body>
+
+</html>
