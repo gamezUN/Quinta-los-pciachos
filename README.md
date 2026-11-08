@@ -1,15 +1,18 @@
 # Quinta Los Picachos — sitio web
 
-Sitio estático desarrollado con HTML, CSS y JavaScript, preparado para GitHub Pages.
+Página informativa para celular (también funciona en escritorio), hecha con HTML, CSS y JavaScript, lista para GitHub Pages.
 
 ## Estructura
-- `index.html`: contenido y secciones del sitio.
-- `styles.css`: diseño adaptable a escritorio y móvil.
-- `script.js`: navegación móvil y galería interactiva.
+- `index.html`: contenido. Cinco vistas con menú inferior: Inicio, Info, Fotos, Eventos y Mapa.
+- `styles.css`: diseño.
+- `script.js`: menú, estado "Abierto ahora" en vivo, galería con visor y botones de redes.
+- `assets/`: fotos (`hero.webp` y `galeria-01.webp` a `galeria-11.webp`).
 
-## Antes de publicar
-- Sustituir los espacios de galería y la imagen ambiental de portada por fotografías oficiales autorizadas.
-- Confirmar con la administración teléfono, ubicación exacta, instalaciones, precios, horarios, capacidad y reglamento.
-- El botón de WhatsApp inicia una consulta; no existe todavía un sistema de reservaciones ni pagos.
+## Qué se actualiza aquí
+- **Horario:** en `script.js`, constante `HORARIO` (hoy: 10:00 a 20:00, albercas hasta 19:30). El texto de las tarjetas está en `index.html`.
+- **Redes y contacto:** en `script.js`, objeto `CONFIG`. Si un enlace está vacío, su botón no se muestra.
+- **Fotos:** lista `FOTOS` en `script.js` (cada foto tiene su categoría para los filtros).
 
-No se inventaron tarifas ni políticas del establecimiento.
+## Notas
+- La página no enlaza a ningún WhatsApp ni teléfono personal.
+- La versión anterior de la página está en la rama `original`.
