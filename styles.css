@@ -318,3 +318,201 @@ body{background:#f5f2e9}
 @media(prefers-reduced-motion:reduce){
  .gallery-item img,.gallery-more img,.gallery-item:before{transition:none}
 }
+
+
+/* =========================================================
+   CAIRNWELL-INSPIRED NIGHT EDITION — QUINTA LOS PICACHOS
+   Deep forest / moss / warm amber. Editorial, quiet, cinematic.
+   ========================================================= */
+:root{
+  --color-accent:#a6d466;
+  --color-secondary:#a9b6a0;
+  --color-canvas:#0c140e;
+  --color-ink:#eef0e2;
+  --amber:#c88b55;
+  --amber-soft:#e0b17d;
+  --surface:#121d15;
+  --surface-raised:#19261d;
+  --hairline:rgba(201,215,190,.16);
+  --serif:"Newsreader",Georgia,serif;
+  --sans:"Figtree",Arial,sans-serif;
+  --ink:#eef0e2;
+  --paper:#0c140e;
+  --forest:#142219;
+  --moss:#a9b6a0;
+  --gold:#c88b55;
+}
+html{background:var(--color-canvas);color-scheme:dark}
+body{background:var(--color-canvas);color:var(--color-ink);font-family:var(--sans)}
+.site-header{
+  background:rgba(12,20,14,.94);
+  border-bottom:1px solid var(--hairline);
+  box-shadow:0 12px 40px rgba(0,0,0,.22);
+}
+.brand-symbol{color:var(--color-accent);border-color:rgba(166,212,102,.5);box-shadow:inset 0 0 0 3px rgba(166,212,102,.07)}
+.brand-copy strong,.footer-brand strong{color:var(--color-ink)}
+.brand-copy small,.footer-brand small{color:#9ca996}
+.main-nav{color:#c1c9b9}
+.main-nav a:hover,.header-cta:hover{color:var(--amber-soft)}
+.header-cta{color:var(--color-accent);border-color:rgba(166,212,102,.5)}
+.menu-toggle span{background:var(--color-ink)}
+.hero{background:#0c140e}
+.hero:before{border-color:rgba(225,235,213,.2)}
+.hero-backdrop{
+  background-image:
+    linear-gradient(90deg,rgba(7,14,9,.83) 0%,rgba(7,14,9,.55) 42%,rgba(7,14,9,.14) 100%),
+    linear-gradient(0deg,rgba(7,14,9,.7),transparent 48%),
+    url("assets/hero.webp");
+  background-size:cover;background-position:center 52%;
+}
+.hero h1{color:#f1f0e4;text-shadow:0 10px 50px rgba(0,0,0,.45)}
+.hero h1 em{color:#c5d2b5}
+.hero .eyebrow{color:#d4ddc9}
+.hero .eyebrow span{background:var(--amber)}
+.hero-description{color:#d0d7ca}
+.hero .button-primary{background:var(--color-accent);color:#172116;box-shadow:0 10px 35px rgba(0,0,0,.3)}
+.hero .button-primary:hover{background:#b8e27c}
+.hero .button-quiet{color:#edf0e5}
+.hero .button-quiet span{color:var(--amber-soft)}
+.hero-bottom{color:#c1cdb9}
+.hero-index i{color:var(--amber-soft)}
+.scroll-indicator b{color:var(--color-accent)}
+.section-wrap{background:transparent}
+.section-label{color:#a9b6a0}
+.section-label span{color:var(--amber-soft)}
+.intro{
+  color:var(--color-ink);
+  background:radial-gradient(ellipse at 95% 10%,rgba(166,212,102,.055),transparent 34%),#0e1711;
+}
+.intro h2,.section-heading h2,.info-layout h2{color:var(--color-ink)}
+.intro h2 em,.section-heading h2 em{color:#b8c8a8}
+.intro-copy .lead{color:#e2e8d9}
+.intro-copy p,.section-heading>p,.gallery-footnote{color:#aab5a5}
+.underlined-link{color:var(--color-accent);border-color:rgba(166,212,102,.4)}
+.underlined-link span{color:var(--amber-soft)}
+.intro-stats{border-color:var(--hairline)}
+.intro-stats strong{color:#e8ecdf}
+.intro-stats span{color:#98a493}
+.landscape-section{background:#101b14;color:var(--color-ink)}
+.landscape-copy .section-label{color:#b2c0a9}
+.landscape-copy .section-label span{color:var(--amber-soft)}
+.landscape-copy .overline{color:var(--amber-soft)}
+.landscape-copy h2{color:#eef0e2}
+.landscape-copy h2 em{color:#b7c7a7}
+.landscape-copy>p:not(.overline){color:#b0bcac}
+.text-link-light{color:var(--color-accent);border-color:rgba(166,212,102,.4)}
+.text-link-light span{color:var(--amber-soft)}
+.landscape-stamp{border-color:rgba(224,177,125,.72);color:#f1e8d7}
+.landscape-stamp strong{color:var(--amber-soft)}
+.spaces{
+  background:radial-gradient(ellipse at 85% 8%,rgba(200,139,85,.075),transparent 28%),#0c140e;
+  color:var(--color-ink);
+}
+.spaces:before{border-color:rgba(200,139,85,.13);box-shadow:0 0 0 28px rgba(200,139,85,.025),0 0 0 58px rgba(200,139,85,.018)}
+.section-heading>p{border-left-color:var(--amber);color:#aab5a5}
+.gallery-item{background:#1b2a20;border-color:rgba(238,240,226,.16);box-shadow:0 18px 45px rgba(0,0,0,.3)}
+.gallery-item img{filter:saturate(.78) brightness(.88) contrast(1.05)}
+.gallery-item:hover img{filter:saturate(.98) brightness(.98) contrast(1.04)}
+.gallery-item:before{border-color:rgba(238,240,226,.3)}
+.gallery-item:hover:before{border-color:rgba(224,177,125,.72)}
+.gallery-item:after{background:linear-gradient(0deg,rgba(7,14,9,.9),rgba(7,14,9,.15) 58%,transparent)}
+.gallery-caption span{color:var(--amber-soft)}
+.gallery-caption h3{color:#f2f0e5}
+.photo-number{color:#e5dfd0}
+.gallery-more img{border-color:#1a281e;box-shadow:0 8px 25px rgba(0,0,0,.32);filter:saturate(.75) brightness(.82)}
+.gallery-more img:hover{filter:saturate(1) brightness(1)}
+.gallery-footnote{color:#8f9c8c}
+.gallery-footnote:before{background:var(--amber)}
+.entry-section{background:#17231a;color:var(--color-ink)}
+.entry-photo:after{border-color:rgba(224,177,125,.5)}
+.entry-copy .overline{color:var(--amber-soft)}
+.entry-copy h2{color:#eef0e2}
+.entry-copy h2 em{color:#b7c7a7}
+.entry-price{border-color:rgba(201,215,190,.2)}
+.entry-price span{color:#a9b6a0}
+.entry-price strong{color:#eef0e2}
+.entry-price small{color:var(--amber-soft)}
+.entry-copy>p:not(.overline){color:#d2dacb}
+.entry-copy .entry-note{color:#a3af9d!important}
+.entry-copy:after{border-color:rgba(200,139,85,.2);box-shadow:0 0 0 12px rgba(200,139,85,.035),0 0 0 25px rgba(200,139,85,.02)}
+.events-section{
+  background:radial-gradient(ellipse at 8% 12%,rgba(200,139,85,.07),transparent 30%),#0e1711;
+  color:var(--color-ink);
+}
+.events-heading h2{color:#eef0e2}
+.events-heading h2 em{color:#b8c8a8}
+.events-heading>p{color:#aab5a5}
+.event-types{border-color:var(--hairline)}
+.event-types div:not(:last-child){border-color:var(--hairline)}
+.event-types span{color:var(--amber-soft)}
+.event-types strong{color:#e9eddf}
+.event-form{background:#142019;border:1px solid var(--hairline);box-shadow:0 22px 65px rgba(0,0,0,.25)}
+.event-form label{color:#d3ddca}
+.event-form input,.event-form select,.event-form textarea{background:#0d1710;border-color:rgba(201,215,190,.2);color:#eef0e2}
+.event-form input::placeholder,.event-form textarea::placeholder{color:#778574}
+.event-form input:focus,.event-form select:focus,.event-form textarea:focus{border-color:var(--amber);background:#111e15}
+.event-form button{background:var(--color-accent);color:#172116}
+.event-form button:hover{background:#b8e27c}
+.form-privacy{color:#9eaa99}
+.amenities-section{background:#142019;color:var(--color-ink)}
+.amenities-section:after{border-color:rgba(200,139,85,.13);box-shadow:0 0 0 25px rgba(200,139,85,.022),0 0 0 55px rgba(200,139,85,.016)}
+.amenities-heading h2{color:#eef0e2}
+.amenities-heading h2 em{color:#b7c7a7}
+.amenities-heading>p{color:#aab5a5}
+.amenities-list{border-color:var(--hairline)}
+.amenities-list div{border-color:var(--hairline)}
+.amenities-list span{color:var(--amber-soft)}
+.amenities-list strong{color:#e9eddf}
+.amenities-list i{color:var(--color-accent)}
+.amenities-list div:hover{background:rgba(166,212,102,.035)}
+.fine-print{color:#9aa895}
+.booking-section{background:#0c140e;color:var(--color-ink)}
+.booking-layout .overline{color:var(--amber-soft)}
+.booking-layout h2{color:#eef0e2}
+.booking-layout h2 em{color:#b7c7a7}
+.booking-copy{color:#aab5a5}
+.button-dark{background:var(--color-accent);color:#172116}
+.button-dark:hover{background:#b8e27c}
+.booking-card{background:#142019;border-color:var(--hairline);box-shadow:0 25px 65px rgba(0,0,0,.26)}
+.booking-card-top{border-color:var(--hairline);color:var(--amber-soft)}
+.booking-row{border-color:var(--hairline);color:#aab5a5}
+.booking-row strong{color:#e8ecdf}
+.booking-card>p{color:#9ca996}
+.location-section{background:#101a13;color:var(--color-ink)}
+.location-copy .overline{color:var(--amber-soft)}
+.location-copy h2{color:#eef0e2}
+.location-copy h2 em{color:#b7c7a7}
+.location-copy>p{color:#aab5a5}
+.location-copy:before{background:linear-gradient(180deg,transparent,var(--amber),transparent)}
+.location-contact strong{color:#eef0e2}
+.location-contact small{color:#8f9c8c}
+.map-panel{background:#1a281e;border-color:#101a13}
+.map-panel iframe{filter:grayscale(.85) invert(.88) hue-rotate(75deg) contrast(.85) brightness(.82)}
+.map-tag{background:#142019;color:#dbe4d3;border:1px solid var(--hairline)}
+.info-section{background:#0c140e;color:var(--color-ink)}
+.info-layout h2{color:#eef0e2}
+.info-layout>div>p{color:#aab5a5}
+.info-notice{background:#142019;border-left-color:var(--amber);box-shadow:0 8px 25px rgba(0,0,0,.18)}
+.info-notice span{color:var(--amber-soft)}
+.info-notice strong{color:#e9eddf}
+.site-footer{background:#080f0a;color:#e8ece4;border-top:1px solid var(--hairline)}
+.site-footer:before{color:rgba(166,212,102,.025)}
+.footer-brand .brand-symbol{color:var(--color-accent);border-color:rgba(166,212,102,.45)}
+.footer-brand strong{color:#eef0e2}
+.footer-brand small{color:#9ca996}
+.back-top{color:#b5c1ad}
+.back-top:hover{color:var(--amber-soft)}
+.footer-bottom{border-color:var(--hairline);color:#899787}
+.footer-bottom a{color:var(--color-accent)}
+/* El ámbar aparece como luz cálida en pequeños detalles, nunca como bloque dominante. */
+.eyebrow span,.section-label span,.gallery-caption span,.event-types span{ text-shadow:0 0 18px rgba(200,139,85,.16) }
+.button,.header-cta,.underlined-link,.text-link-light{transition:color .25s,background .25s,border-color .25s,transform .25s}
+@media(max-width:700px){
+ .main-nav{background:#101a13;border-color:var(--hairline)}
+ .main-nav a{color:#d4ddca}
+ .menu-toggle span{background:#eef0e2}
+ .map-panel{border-top-color:#101a13}
+}
+@media(prefers-reduced-motion:reduce){
+ *,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}
+}
