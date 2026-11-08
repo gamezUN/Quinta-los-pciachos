@@ -1,1 +1,37 @@
-const menuButton=document.querySelector(".menu-toggle");const nav=document.querySelector(".nav");menuButton.addEventListener("click",()=>{const opened=nav.classList.toggle("open");menuButton.setAttribute("aria-expanded",String(opened));});document.querySelectorAll(".nav a").forEach(link=>link.addEventListener("click",()=>{nav.classList.remove("open");menuButton.setAttribute("aria-expanded","false");}));document.getElementById("year").textContent=new Date().getFullYear();const lightbox=document.querySelector(".lightbox");const lightboxText=lightbox.querySelector("p");document.querySelectorAll(".gallery-card").forEach(card=>card.addEventListener("click",()=>{lightboxText.textContent=card.dataset.caption+" · Fotografía oficial pendiente";lightbox.classList.add("open");lightbox.setAttribute("aria-hidden","false");}));function closeLightbox(){lightbox.classList.remove("open");lightbox.setAttribute("aria-hidden","true");}document.querySelector(".lightbox-close").addEventListener("click",closeLightbox);lightbox.addEventListener("click",event=>{if(event.target===lightbox)closeLightbox();});document.addEventListener("keydown",event=>{if(event.key==="Escape")closeLightbox();});
+const menuButton = document.querySelector(".menu-toggle");
+const nav = document.querySelector(".main-nav");
+
+if (menuButton && nav) {
+  menuButton.addEventListener("click", () => {
+    const opened = nav.classList.toggle("open");
+    menuButton.setAttribute("aria-expanded", String(opened));
+    menuButton.setAttribute("aria-label", opened ? "Cerrar menú" : "Abrir menú");
+  });
+
+  nav.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+      nav.classList.remove("open");
+      menuButton.setAttribute("aria-expanded", "false");
+      menuButton.setAttribute("aria-label", "Abrir menú");
+    });
+  });
+
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape") {
+      nav.classList.remove("open");
+      menuButton.setAttribute("aria-expanded", "false");
+      menuButton.setAttribute("aria-label", "Abrir menú");
+    }
+  });
+}
+
+const year = document.getElementById("year");
+if (year) year.textContent = new Date().getFullYear();
+
+// Cierra el menú móvil si la ventana vuelve a escritorio.
+window.addEventListener("resize", () => {
+  if (window.innerWidth > 700 && nav && menuButton) {
+    nav.classList.remove("open");
+    menuButton.setAttribute("aria-expanded", "false");
+  }
+});
