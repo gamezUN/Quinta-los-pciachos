@@ -35,3 +35,36 @@ window.addEventListener("resize", () => {
     menuButton.setAttribute("aria-expanded", "false");
   }
 });
+
+
+// Solicitud de información de eventos: prepara el mensaje y lo abre en WhatsApp.
+const eventForm = document.getElementById("event-form");
+if (eventForm) {
+  const dateInput = eventForm.elements.fecha;
+  if (dateInput) {
+    const today = new Date();
+    const localToday = new Date(today.getTime() - today.getTimezoneOffset() * 60000).toISOString().slice(0, 10);
+    dateInput.min = localToday;
+  }
+  eventForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    if (!eventForm.reportValidity()) return;
+    const data = new FormData(eventForm);
+    const lines = [
+      "Hola, quiero solicitar información para un evento en Quinta Los Picachos.",
+      "",
+      "*Nombre:* " + data.get("nombre"),
+      "*Teléfono:* " + data.get("telefono"),
+      "*Correo:* " + data.get("correo"),
+      "*Fecha deseada:* " + data.get("fecha"),
+      "*Tipo de evento:* " + data.get("tipo"),
+      "*Duración:* " + data.get("horas"),
+      "*Número de personas:* " + data.get("personas"),
+      "*Detalles adicionales:* " + (data.get("detalles") || "No especificados"),
+      "",
+      "Entiendo que esta es una solicitud de información y que la fecha queda pendiente de confirmación."
+    ];
+    const whatsappUrl = "https://wa.me/528182572088?text=" + encodeURIComponent(lines.join("\n"));
+    window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+  });
+}
