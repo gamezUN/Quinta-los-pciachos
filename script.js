@@ -14,7 +14,16 @@ const CONFIG = {
     instagram: "",
     facebook: "",
     whatsapp: "",
-    whatsappMensaje: "Hola, quiero información sobre Quinta Los Picachos."
+    whatsappMensaje: "Hola, quiero información sobre Quinta Los Picachos.",
+
+    /* Datos del responsable para el Aviso de privacidad.
+       Si se dejan vacíos, el aviso usa un texto general.
+       Lo ideal es poner el nombre o razón social, el domicilio y un medio de contacto. */
+    legal: {
+        responsable: "",
+        domicilio: "",
+        contacto: ""
+    }
 };
 
 /* Horario (minutos desde las 00:00, hora de Monterrey) */
@@ -26,6 +35,7 @@ const HORARIO = {
 };
 
 const VISTAS = ["inicio", "info", "fotos", "eventos", "mapa"];
+const LEGALES = ["privacidad", "cookies", "terminos"];
 
 /* Fotos (cat: albercas | palapas | verdes) */
 const FOTOS = [
@@ -135,7 +145,8 @@ const FOTOS = [
     const tabbar = document.getElementById("tabbar");
 
     function ir(nombre) {
-        if (!VISTAS.includes(nombre)) nombre = "inicio";
+        if (!VISTAS.includes(nombre) && !LEGALES.includes(nombre)) nombre = "inicio";
+        const esLegal = LEGALES.includes(nombre);
 
         $$(".view").forEach(v => v.classList.toggle("active", v.dataset.view === nombre));
 
@@ -144,7 +155,8 @@ const FOTOS = [
             else t.removeAttribute("aria-current");
         });
 
-        tabbar.style.setProperty("--i", VISTAS.indexOf(nombre));
+        tabbar.classList.toggle("sin-activa", esLegal);
+        if (!esLegal) tabbar.style.setProperty("--i", VISTAS.indexOf(nombre));
         window.scrollTo({ top: 0, behavior: "instant" });
         observarAparicion();
         parallax();
@@ -361,12 +373,43 @@ const FOTOS = [
     }
 
     /* =====================================================
+       DATOS DEL RESPONSABLE (aviso de privacidad)
+       ===================================================== */
+    function configurarLegal() {
+        $$("[data-legal]").forEach(function (el) {
+            const valor = ((CONFIG.legal || {})[el.dataset.legal] || "").trim();
+            if (valor) el.textContent = valor;
+        });
+    }
+
+    /* =====================================================
+       MAPA: se carga solo cuando la persona lo pide
+       ===================================================== */
+    function configurarMapa() {
+        const contenedor = document.getElementById("map");
+        const boton = document.getElementById("mapLoad");
+        if (!contenedor || !boton) return;
+
+        boton.addEventListener("click", function () {
+            const marco = document.createElement("iframe");
+            marco.src = contenedor.dataset.src;
+            marco.title = "Mapa de Quinta Los Picachos";
+            marco.referrerPolicy = "no-referrer-when-downgrade";
+            marco.allowFullscreen = true;
+            contenedor.innerHTML = "";
+            contenedor.appendChild(marco);
+        });
+    }
+
+    /* =====================================================
        INICIO
        ===================================================== */
     function iniciar() {
         renderGaleria("todas");
         renderTira();
         configurarEnlaces();
+        configurarLegal();
+        configurarMapa();
         actualizarHorario();
         setInterval(actualizarHorario, 30000);
 

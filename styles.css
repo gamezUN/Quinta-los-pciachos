@@ -1429,3 +1429,97 @@ details p {
         scroll-behavior: auto;
     }
 }
+
+/* ---------- Páginas legales ---------- */
+.legal {
+    max-width: 720px;
+    padding-bottom: 20px;
+}
+
+.legal .back {
+    display: inline-block;
+    margin-top: 20px;
+    font-weight: 700;
+    font-size: 0.92rem;
+    color: var(--terracota);
+    text-decoration: none;
+}
+
+.legal h3 {
+    margin-top: 1.6rem;
+    font-size: 1.1rem;
+    color: var(--montana);
+}
+
+.legal ul {
+    padding-left: 1.2rem;
+    margin: 0 0 1em;
+}
+
+.legal li {
+    margin-bottom: 0.4rem;
+}
+
+.legal a:not(.back) {
+    color: var(--terracota);
+    font-weight: 700;
+}
+
+.footer__legal {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.4rem 1.2rem;
+    margin-bottom: 0.9rem;
+}
+
+.footer__legal a {
+    color: var(--montana);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.footer__legal a:hover {
+    text-decoration: underline;
+}
+
+/* Cuando se está en una página legal, ninguna pestaña del menú está activa */
+.tabbar.sin-activa .tabbar__pill {
+    opacity: 0;
+}
+
+/* ---------- Mapa con consentimiento ---------- */
+.map__consent {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    padding: 24px;
+    text-align: center;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(31, 143, 163, 0.18), transparent 55%),
+        radial-gradient(circle at 80% 80%, rgba(197, 96, 58, 0.18), transparent 55%),
+        var(--arena);
+}
+
+.map__consent .ico {
+    width: 2.6rem;
+    height: 2.6rem;
+    color: var(--terracota);
+}
+
+.map__consent p {
+    margin: 0;
+    max-width: 34ch;
+}
+
+.map__consent .btn {
+    margin-top: 0.8rem;
+}
+
+.map__consent a {
+    color: var(--terracota);
+    font-weight: 700;
+}

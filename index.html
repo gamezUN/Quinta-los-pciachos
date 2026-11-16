@@ -481,10 +481,15 @@
                     <p><b>Quinta Los Picachos</b> · La Huasteca, Santa Catarina, Nuevo León, México.</p>
                 </header>
 
-                <div class="map reveal">
-                    <iframe
-                        src="https://www.google.com/maps?q=Quinta%20Los%20Picachos%2C%20La%20Huasteca%2C%20Santa%20Catarina%2C%20Nuevo%20Le%C3%B3n&output=embed"
-                        title="Mapa de Quinta Los Picachos" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <!-- El mapa de Google solo se carga cuando la persona lo pide (privacidad y velocidad) -->
+                <div class="map reveal" id="map"
+                    data-src="https://www.google.com/maps?q=Quinta%20Los%20Picachos%2C%20La%20Huasteca%2C%20Santa%20Catarina%2C%20Nuevo%20Le%C3%B3n&output=embed">
+                    <div class="map__consent" id="mapConsent">
+                        <svg class="ico" aria-hidden="true"><use href="#i-pin" /></svg>
+                        <p><b>Mapa interactivo</b></p>
+                        <p class="muted">Al cargarlo se conecta con Google Maps, que puede recibir datos de tu navegador y usar cookies. <a href="#cookies">Más información</a>.</p>
+                        <button class="btn" type="button" id="mapLoad">Cargar mapa</button>
+                    </div>
                 </div>
 
                 <div class="btn-row btn-row--center reveal">
@@ -508,7 +513,126 @@
             </div>
         </section>
 
+        <!-- ================================================= -->
+        <!-- PÁGINAS LEGALES (se abren desde el pie)           -->
+        <!-- ================================================= -->
+
+        <!-- AVISO DE PRIVACIDAD -->
+        <section class="view" data-view="privacidad" aria-label="Aviso de privacidad">
+            <div class="wrap legal">
+                <a class="back" href="#inicio">← Volver al inicio</a>
+                <header class="view__head">
+                    <p class="eyebrow">Legal</p>
+                    <h2>Aviso de privacidad</h2>
+                    <p>Última actualización: 16 de noviembre de 2026</p>
+                </header>
+
+                <h3>1. Quién es el responsable</h3>
+                <p><b data-legal="responsable">Quinta Los Picachos</b>, con domicilio en <span data-legal="domicilio">La Huasteca, Santa Catarina, Nuevo León, México</span>, es responsable del tratamiento de los datos personales que se describen en este aviso. Contacto para temas de privacidad: <span data-legal="contacto">a través de los perfiles oficiales de la quinta en redes sociales</span>.</p>
+
+                <h3>2. Qué datos recabamos</h3>
+                <p>Este sitio <b>no pide, no recibe y no almacena datos personales</b>. No tiene formularios, cuentas, comentarios ni herramientas de analítica o publicidad.</p>
+
+                <h3>3. Datos técnicos que generan terceros</h3>
+                <p>Al navegar, tu dispositivo se conecta a servicios de terceros que pueden registrar datos técnicos como tu dirección IP, tipo de navegador, dispositivo y fecha y hora de la visita:</p>
+                <ul>
+                    <li><b>Alojamiento del sitio</b> (GitHub Pages, de GitHub, Inc.).</li>
+                    <li><b>Google Fonts</b>, que entrega las tipografías de la página.</li>
+                    <li><b>Google Maps</b>, solo si tocas el botón «Cargar mapa».</li>
+                </ul>
+                <p>Esos terceros tratan los datos bajo sus propios avisos de privacidad. La quinta no tiene acceso a esa información.</p>
+
+                <h3>4. Si nos escribes</h3>
+                <p>Si decides contactarnos por redes sociales u otro medio, usaremos los datos que nos compartas (por ejemplo, tu nombre y el contenido de tu mensaje) únicamente para responder tu consulta y atender tu visita o reservación. No los usamos para otros fines, no los vendemos y no los transferimos a terceros, salvo que la ley lo exija.</p>
+
+                <h3>5. Enlaces a otros sitios</h3>
+                <p>Esta página enlaza a Google Maps, Instagram y Facebook. Al abrirlos sales de este sitio y aplican sus propias políticas.</p>
+
+                <h3>6. Tus derechos</h3>
+                <p>Tienes derecho a <b>acceder, rectificar, cancelar u oponerte</b> al tratamiento de los datos personales que nos hayas proporcionado (derechos ARCO). Para ejercerlos, escríbenos por el medio de contacto indicado arriba, con tu nombre y la descripción de lo que solicitas.</p>
+                <p>Si consideras que se vulneró tu derecho a la protección de datos personales, puedes acudir a la Secretaría Anticorrupción y Buen Gobierno, autoridad en la materia conforme a la Ley Federal de Protección de Datos Personales en Posesión de los Particulares, vigente desde el 21 de marzo de 2025.</p>
+
+                <h3>7. Menores de edad</h3>
+                <p>Este sitio no está dirigido a recabar datos de menores. Si un menor nos escribe, atenderemos su consulta con la persona adulta responsable.</p>
+
+                <h3>8. Cambios a este aviso</h3>
+                <p>Si el sitio cambia (por ejemplo, si se agrega un formulario o analítica), este aviso se actualizará en esta misma página con la fecha correspondiente.</p>
+            </div>
+        </section>
+
+        <!-- POLÍTICA DE COOKIES -->
+        <section class="view" data-view="cookies" aria-label="Política de cookies">
+            <div class="wrap legal">
+                <a class="back" href="#inicio">← Volver al inicio</a>
+                <header class="view__head">
+                    <p class="eyebrow">Legal</p>
+                    <h2>Política de cookies</h2>
+                    <p>Última actualización: 16 de noviembre de 2026</p>
+                </header>
+
+                <h3>Qué son</h3>
+                <p>Las cookies son pequeños archivos que un sitio guarda en tu navegador para recordar información o medir el uso de la página.</p>
+
+                <h3>Qué usa este sitio</h3>
+                <ul>
+                    <li><b>Cookies propias:</b> ninguna. El sitio no guarda cookies ni datos en tu navegador para seguimiento, analítica o publicidad.</li>
+                    <li><b>Tipografías (Google Fonts):</b> Google recibe tu dirección IP para entregar las fuentes de la página.</li>
+                    <li><b>Mapa (Google Maps):</b> solo se carga si tocas «Cargar mapa». Al hacerlo, Google puede establecer cookies o tecnologías similares y recibir datos de tu navegador, conforme a su propia política.</li>
+                </ul>
+
+                <h3>Por qué no mostramos un aviso de cookies</h3>
+                <p>Porque no se activa ninguna cookie no esencial sin que tú lo decidas: el único elemento que puede usarlas, el mapa, solo se carga cuando lo pides.</p>
+
+                <h3>Cómo borrarlas o bloquearlas</h3>
+                <p>Puedes eliminar o bloquear cookies desde los ajustes de privacidad de tu navegador (Chrome, Safari, Firefox, Edge u otro). Si las bloqueas, el mapa de Google puede dejar de funcionar; siempre puedes abrir la ubicación directamente en la aplicación de Google Maps.</p>
+
+                <h3>Cambios</h3>
+                <p>Si en el futuro se agregan herramientas de analítica o publicidad, esta política se actualizará y se pedirá tu consentimiento antes de activarlas.</p>
+            </div>
+        </section>
+
+        <!-- TÉRMINOS DE USO -->
+        <section class="view" data-view="terminos" aria-label="Términos de uso">
+            <div class="wrap legal">
+                <a class="back" href="#inicio">← Volver al inicio</a>
+                <header class="view__head">
+                    <p class="eyebrow">Legal</p>
+                    <h2>Términos de uso</h2>
+                    <p>Última actualización: 16 de noviembre de 2026</p>
+                </header>
+
+                <h3>1. Sitio informativo</h3>
+                <p>Este sitio presenta información sobre Quinta Los Picachos: horarios, entrada, reglamento, qué incluye, fotos y ubicación. Al usarlo aceptas estos términos.</p>
+
+                <h3>2. Horarios, precios y reglas</h3>
+                <p>Los horarios, precios (en pesos mexicanos) y reglas pueden cambiar sin previo aviso. Procuramos mantener la información al día, pero no garantizamos que esté libre de errores. En caso de diferencia, aplica lo que informe la administración en la quinta. El reglamento publicado es un resumen; en el lugar pueden aplicarse las indicaciones del personal.</p>
+
+                <h3>3. Reservaciones</h3>
+                <p>Este sitio no recibe ni confirma reservaciones. Ninguna palapa, mesa ni evento queda apartado hasta que la administración lo confirme directamente. La disponibilidad se revisa con la administración.</p>
+
+                <h3>4. Contenido del sitio</h3>
+                <p>Los textos, fotografías y el diseño de este sitio pertenecen a la quinta o a sus autores, y no pueden copiarse ni usarse con fines comerciales sin autorización por escrito.</p>
+
+                <h3>5. Servicios y enlaces de terceros</h3>
+                <p>El mapa, las reseñas y las redes sociales dependen de servicios de terceros (Google, Instagram, Facebook), cuyo contenido y políticas no controlamos. Las reseñas en Google Maps son opiniones de sus autores.</p>
+
+                <h3>6. Disponibilidad del sitio</h3>
+                <p>El sitio puede no estar disponible o cambiar en cualquier momento por mantenimiento, fallas de internet o de los servicios que lo alojan. No nos hacemos responsables por interrupciones ni por daños derivados del uso de la información del sitio.</p>
+
+                <h3>7. Privacidad y cookies</h3>
+                <p>Consulta el <a href="#privacidad">Aviso de privacidad</a> y la <a href="#cookies">Política de cookies</a>.</p>
+
+                <h3>8. Ley aplicable</h3>
+                <p>Estos términos se rigen por las leyes de México. Para cualquier controversia serán competentes los tribunales del estado de Nuevo León.</p>
+            </div>
+        </section>
+
         <footer class="footer">
+            <nav class="footer__legal" aria-label="Información legal">
+                <a href="#privacidad">Aviso de privacidad</a>
+                <a href="#cookies">Política de cookies</a>
+                <a href="#terminos">Términos de uso</a>
+            </nav>
             <p>© Quinta Los Picachos · La Huasteca, Santa Catarina, N.L.</p>
             <p>Diseño y desarrollo <a href="https://gamezun.github.io/Gamez.web/" target="_blank" rel="noopener">GMZ Digital Solutions</a></p>
         </footer>
