@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gamezun.github.io/Quinta-los-pciachos/sitemap.xml

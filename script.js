@@ -12,9 +12,28 @@
    --------------------------------------------------------- */
 const CONFIG = {
     instagram: "",
-    facebook: "",
+    facebook: "https://www.facebook.com/p/Quinta-Los-Picachos-La-Huasteca-100065184687059/",
     whatsapp: "",
     whatsappMensaje: "Hola, quiero información sobre Quinta Los Picachos.",
+
+    /* Seguidores que se muestran en la página (suma de las redes de la quinta). */
+    seguidores: 7500,
+
+    /* Aviso editable en la parte de arriba (temporada de lluvias, cierres, etc.).
+       Pon activo: true y escribe el texto; con activo: false no se muestra.
+       tipo: "info" (azul) o "alerta" (ámbar). */
+    aviso: {
+        activo: false,
+        texto: "",
+        tipo: "info"
+    },
+
+    /* Mapa y ruta. Puedes poner un nombre de lugar o coordenadas "lat,lng".
+       Si el pin no cae exacto, pega aquí las coordenadas de la entrada de la quinta. */
+    mapa: {
+        destino: "Quinta Los Picachos, La Huasteca, Santa Catarina, Nuevo León",
+        origen: "Entrada Parque Ecológico La Huasteca, Santa Catarina, Nuevo León"
+    },
 
     /* Datos del responsable para el Aviso de privacidad.
        Si se dejan vacíos, el aviso usa un texto general.
@@ -385,20 +404,158 @@ const FOTOS = [
     /* =====================================================
        MAPA: se carga solo cuando la persona lo pide
        ===================================================== */
+    function urlMapa(modo) {
+        const m = CONFIG.mapa;
+        const destino = encodeURIComponent(m.destino);
+        const origen = encodeURIComponent(m.origen);
+        if (modo === "satelite") return "https://www.google.com/maps?q=" + destino + "&t=h&output=embed";
+        if (modo === "ruta") return "https://maps.google.com/maps?saddr=" + origen + "&daddr=" + destino + "&output=embed";
+        return "https://www.google.com/maps?q=" + destino + "&output=embed";
+    }
+
     function configurarMapa() {
+        const m = CONFIG.mapa;
+
+        // Botones que abren Google Maps (la ruta se abre ya trazada, en la app si está instalada)
+        $$("[data-maps]").forEach(function (a) {
+            a.href = a.dataset.maps === "ruta"
+                ? "https://www.google.com/maps/dir/?api=1&origin=" + encodeURIComponent(m.origen) +
+                  "&destination=" + encodeURIComponent(m.destino) + "&travelmode=driving"
+                : "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(m.destino);
+        });
+
         const contenedor = document.getElementById("map");
         const boton = document.getElementById("mapLoad");
+        const modos = document.getElementById("mapModes");
         if (!contenedor || !boton) return;
 
+        function cargar(modo) {
+            let marco = contenedor.querySelector("iframe");
+            if (!marco) {
+                marco = document.createElement("iframe");
+                marco.title = "Mapa de Quinta Los Picachos";
+                marco.referrerPolicy = "no-referrer-when-downgrade";
+                marco.allowFullscreen = true;
+                contenedor.innerHTML = "";
+                contenedor.appendChild(marco);
+            }
+            marco.src = urlMapa(modo);
+        }
+
+        // El mapa de Google solo se carga cuando la persona lo pide
         boton.addEventListener("click", function () {
-            const marco = document.createElement("iframe");
-            marco.src = contenedor.dataset.src;
-            marco.title = "Mapa de Quinta Los Picachos";
-            marco.referrerPolicy = "no-referrer-when-downgrade";
-            marco.allowFullscreen = true;
-            contenedor.innerHTML = "";
-            contenedor.appendChild(marco);
+            cargar("mapa");
+            if (modos) modos.hidden = false;
         });
+
+        if (modos) {
+            modos.addEventListener("click", function (e) {
+                const chip = e.target.closest(".chip");
+                if (!chip) return;
+                $$(".chip", modos).forEach(c => c.classList.toggle("active", c === chip));
+                cargar(chip.dataset.modo);
+            });
+        }
+    }
+
+    /* =====================================================
+       SEGUIDORES, AVISO, COMPARTIR E INSTALAR
+       ===================================================== */
+    function configurarSeguidores() {
+        const n = Number(CONFIG.seguidores) || 0;
+        $$("[data-seguidores]").forEach(function (el) {
+            el.dataset.count = n;
+            el.textContent = n.toLocaleString("es-MX");
+        });
+    }
+
+    function configurarAviso() {
+        const a = CONFIG.aviso || {};
+        const el = document.getElementById("aviso");
+        if (!el || !a.activo || !String(a.texto || "").trim()) return;
+        el.textContent = a.texto;
+        el.dataset.tipo = a.tipo === "alerta" ? "alerta" : "info";
+        el.hidden = false;
+    }
+
+    function aviso(texto) {
+        let t = document.getElementById("toast");
+        if (!t) {
+            t = document.createElement("div");
+            t.id = "toast";
+            t.className = "toast";
+            t.setAttribute("role", "status");
+            document.body.appendChild(t);
+        }
+        t.textContent = texto;
+        t.classList.add("on");
+        clearTimeout(t._h);
+        t._h = setTimeout(function () { t.classList.remove("on"); }, 2600);
+    }
+
+    function configurarCompartir() {
+        const compartir = document.getElementById("shareBtn");
+        const instalar = document.getElementById("installBtn");
+        const pistaIOS = document.getElementById("iosHint");
+        const instalada = window.matchMedia("(display-mode: standalone)").matches || navigator.standalone;
+
+        if (compartir) {
+            compartir.addEventListener("click", async function () {
+                const url = location.href.split("#")[0];
+                try {
+                    if (navigator.share) {
+                        await navigator.share({
+                            title: "Quinta Los Picachos · La Huasteca",
+                            text: "Horarios, reglamento y fotos de Quinta Los Picachos.",
+                            url: url
+                        });
+                        return;
+                    }
+                } catch (e) {
+                    if (e && e.name === "AbortError") return;
+                }
+                try {
+                    await navigator.clipboard.writeText(url);
+                    aviso("Enlace copiado");
+                } catch (e) {
+                    aviso("Copia este enlace: " + url);
+                }
+            });
+        }
+
+        let diferido = null;
+        window.addEventListener("beforeinstallprompt", function (e) {
+            e.preventDefault();
+            diferido = e;
+            if (instalar && !instalada) instalar.hidden = false;
+        });
+
+        if (instalar) {
+            instalar.addEventListener("click", async function () {
+                if (!diferido) return;
+                diferido.prompt();
+                await diferido.userChoice;
+                diferido = null;
+                instalar.hidden = true;
+            });
+        }
+
+        window.addEventListener("appinstalled", function () {
+            if (instalar) instalar.hidden = true;
+            aviso("App instalada");
+        });
+
+        // iPhone y iPad no ofrecen el botón: se muestra la instrucción
+        const esIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
+        if (pistaIOS && esIOS && !instalada) pistaIOS.hidden = false;
+    }
+
+    function registrarSW() {
+        if ("serviceWorker" in navigator && location.protocol.indexOf("http") === 0) {
+            window.addEventListener("load", function () {
+                navigator.serviceWorker.register("sw.js").catch(function () { });
+            });
+        }
     }
 
     /* =====================================================
@@ -410,6 +567,10 @@ const FOTOS = [
         configurarEnlaces();
         configurarLegal();
         configurarMapa();
+        configurarSeguidores();
+        configurarAviso();
+        configurarCompartir();
+        registrarSW();
         actualizarHorario();
         setInterval(actualizarHorario, 30000);
 

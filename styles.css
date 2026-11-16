@@ -1523,3 +1523,89 @@ details p {
     color: var(--terracota);
     font-weight: 700;
 }
+
+/* ---------- Aviso editable ---------- */
+.aviso {
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 0.92rem;
+    font-weight: 700;
+    background: var(--turquesa);
+    color: var(--blanco);
+}
+
+.aviso[data-tipo="alerta"] {
+    background: var(--ambar);
+    color: #3a2a00;
+}
+
+.aviso[hidden] {
+    display: none;
+}
+
+/* ---------- Compartir e instalar ---------- */
+.share {
+    margin-top: 40px;
+    padding: 24px;
+    border-radius: var(--radio);
+    background: var(--arena);
+    border: 1px solid var(--linea);
+}
+
+.share p:not(.muted) {
+    color: var(--suave);
+}
+
+.share .muted {
+    margin: 0.8rem 0 0;
+}
+
+.share .btn--outline .ico {
+    color: currentColor;
+}
+
+/* ---------- Tipo de mapa ---------- */
+.map__modes {
+    position: static;
+    margin: 12px 0 0;
+    padding: 0;
+    background: none;
+    justify-content: center;
+}
+
+.map__modes[hidden] {
+    display: none;
+}
+
+/* ---------- Mensaje breve ---------- */
+.toast {
+    position: fixed;
+    left: 50%;
+    bottom: calc(100px + env(safe-area-inset-bottom));
+    transform: translate(-50%, 16px);
+    z-index: 120;
+    padding: 0.7em 1.2em;
+    border-radius: 999px;
+    background: var(--noche);
+    color: var(--crema);
+    font-size: 0.9rem;
+    font-weight: 700;
+    box-shadow: var(--sombra);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s, transform 0.25s;
+    max-width: calc(100% - 32px);
+    text-align: center;
+}
+
+.toast.on {
+    opacity: 1;
+    transform: translate(-50%, 0);
+}
+
+/* Los botones de tipo de mapa se acomodan en varias líneas en vez de recortarse */
+.map__modes {
+    flex-wrap: wrap;
+    overflow: visible;
+    margin-inline: 0;
+}

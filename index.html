@@ -7,9 +7,17 @@
     <title>Quinta Los Picachos | Horarios, reglamento y fotos · La Huasteca, Santa Catarina</title>
     <meta name="description" content="Quinta Los Picachos en La Huasteca, Santa Catarina, N.L. Abierto todos los días de 10 a.m. a 8 p.m. Entrada $150. Albercas, toboganes, palapas, asadores y áreas verdes. Consulta horarios, reglamento y fotos.">
     <meta name="theme-color" content="#1f3236">
+    <link rel="canonical" href="https://gamezun.github.io/Quinta-los-pciachos/">
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Los Picachos">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <!-- Al compartir el enlace -->
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://gamezun.github.io/Quinta-los-pciachos/">
     <meta property="og:title" content="Quinta Los Picachos | La Huasteca">
     <meta property="og:description" content="Abierto todos los días de 10 a.m. a 8 p.m. Entrada $150. Albercas, toboganes, palapas y áreas verdes.">
     <meta property="og:image" content="https://gamezun.github.io/Quinta-los-pciachos/assets/hero.webp">
@@ -62,6 +70,9 @@
         <symbol id="i-right" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6" /></symbol>
         <symbol id="i-dollar" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23" /><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" /></symbol>
         <symbol id="i-rules" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4" /><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" /></symbol>
+        <symbol id="i-share" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3" /><circle cx="6" cy="12" r="3" /><circle cx="18" cy="19" r="3" /><line x1="8.59" y1="13.51" x2="15.42" y2="17.49" /><line x1="15.41" y1="6.51" x2="8.59" y2="10.49" /></symbol>
+        <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" y1="15" x2="12" y2="3" /></symbol>
+        <symbol id="i-route" viewBox="0 0 24 24"><circle cx="6" cy="19" r="3" /><path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15" /><circle cx="18" cy="5" r="3" /></symbol>
         <symbol id="i-gift" viewBox="0 0 24 24"><polyline points="20 12 20 22 4 22 4 12" /><rect x="2" y="7" width="20" height="5" /><line x1="12" y1="22" x2="12" y2="7" /><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z" /><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z" /></symbol>
     </svg>
 
@@ -75,6 +86,9 @@
     </header>
 
     <main id="app">
+
+        <!-- Aviso editable desde CONFIG.aviso en script.js (temporada de lluvias, cierres, etc.) -->
+        <div class="aviso" id="aviso" role="status" hidden></div>
 
         <!-- ================================================= -->
         <!-- INICIO                                            -->
@@ -120,7 +134,7 @@
                         <small>todos los días</small>
                     </article>
                     <article class="stat">
-                        <b>+<span data-count="7500" data-sep="1">7,500</span></b>
+                        <b>+<span data-count="7500" data-sep="1" data-seguidores>7,500</span></b>
                         <small>seguidores</small>
                     </article>
                     <article class="stat">
@@ -203,7 +217,7 @@
                     </article>
 
                     <article class="panel panel--teal" data-hide-if-empty>
-                        <p class="panel__big">+<span data-count="7500" data-sep="1">7,500</span></p>
+                        <p class="panel__big">+<span data-count="7500" data-sep="1" data-seguidores>7,500</span></p>
                         <h3>seguidores en redes</h3>
                         <p>Síguenos y entérate de todo.</p>
                         <div class="btn-row">
@@ -211,6 +225,17 @@
                             <a class="btn btn--small btn--light" data-link="facebook" hidden><svg class="ico" aria-hidden="true"><use href="#i-facebook" /></svg>Facebook</a>
                         </div>
                     </article>
+                </section>
+
+                <!-- Compartir e instalar -->
+                <section class="share reveal" aria-label="Compartir e instalar">
+                    <h3>Llévala contigo</h3>
+                    <p>Comparte la página con tu familia o guárdala en tu celular para tener el horario y las reglas siempre a la mano.</p>
+                    <div class="btn-row">
+                        <button class="btn btn--small" type="button" id="shareBtn"><svg class="ico" aria-hidden="true"><use href="#i-share" /></svg>Compartir</button>
+                        <button class="btn btn--small btn--outline" type="button" id="installBtn" hidden><svg class="ico" aria-hidden="true"><use href="#i-download" /></svg>Instalar como app</button>
+                    </div>
+                    <p class="muted" id="iosHint" hidden>En iPhone: toca <b>Compartir</b> en Safari y luego <b>Agregar a pantalla de inicio</b>.</p>
                 </section>
 
             </div>
@@ -492,17 +517,26 @@
                     </div>
                 </div>
 
+                <div class="filters map__modes" id="mapModes" role="group" aria-label="Tipo de mapa" hidden>
+                    <button class="chip active" type="button" data-modo="mapa">Mapa</button>
+                    <button class="chip" type="button" data-modo="satelite">Satélite</button>
+                    <button class="chip" type="button" data-modo="ruta">Ruta desde La Huasteca</button>
+                </div>
+
                 <div class="btn-row btn-row--center reveal">
-                    <a class="btn" target="_blank" rel="noopener"
+                    <a class="btn" target="_blank" rel="noopener" data-maps="ruta"
+                        href="https://www.google.com/maps/dir/?api=1&origin=Entrada%20Parque%20Ecol%C3%B3gico%20La%20Huasteca%2C%20Santa%20Catarina%2C%20Nuevo%20Le%C3%B3n&destination=Quinta%20Los%20Picachos%2C%20La%20Huasteca%2C%20Santa%20Catarina%2C%20Nuevo%20Le%C3%B3n&travelmode=driving">
+                        <svg class="ico" aria-hidden="true"><use href="#i-route" /></svg>Cómo llegar desde La Huasteca</a>
+                    <a class="btn btn--outline" target="_blank" rel="noopener" data-maps="lugar"
                         href="https://www.google.com/maps/search/?api=1&query=Quinta%20Los%20Picachos%20La%20Huasteca%20Santa%20Catarina%20Nuevo%20Leon">
                         <svg class="ico" aria-hidden="true"><use href="#i-pin" /></svg>Abrir en Google Maps</a>
-                    <a class="btn btn--outline" target="_blank" rel="noopener"
+                    <a class="btn btn--outline" target="_blank" rel="noopener" data-maps="lugar"
                         href="https://www.google.com/maps/search/?api=1&query=Quinta%20Los%20Picachos%20La%20Huasteca%20Santa%20Catarina%20Nuevo%20Leon">
                         <svg class="ico" aria-hidden="true"><use href="#i-star" /></svg>Ver reseñas</a>
                 </div>
 
                 <section class="panel panel--teal reveal" data-hide-if-empty>
-                    <p class="panel__big">+<span data-count="7500" data-sep="1">7,500</span> seguidores</p>
+                    <p class="panel__big">+<span data-count="7500" data-sep="1" data-seguidores>7,500</span> seguidores</p>
                     <p>Síguenos en redes para ver novedades.</p>
                     <div class="btn-row">
                         <a class="btn btn--small btn--light" data-link="instagram" hidden><svg class="ico" aria-hidden="true"><use href="#i-instagram" /></svg>Instagram</a>
@@ -576,6 +610,7 @@
                 <h3>Qué usa este sitio</h3>
                 <ul>
                     <li><b>Cookies propias:</b> ninguna. El sitio no guarda cookies ni datos en tu navegador para seguimiento, analítica o publicidad.</li>
+                    <li><b>Copia de los archivos del sitio:</b> para abrir más rápido y funcionar sin conexión, tu navegador guarda una copia de los archivos de esta página (imágenes, estilos y textos). No contiene datos personales y puedes borrarla desde los ajustes de tu navegador.</li>
                     <li><b>Tipografías (Google Fonts):</b> Google recibe tu dirección IP para entregar las fuentes de la página.</li>
                     <li><b>Mapa (Google Maps):</b> solo se carga si tocas «Cargar mapa». Al hacerlo, Google puede establecer cookies o tecnologías similares y recibir datos de tu navegador, conforme a su propia política.</li>
                 </ul>
